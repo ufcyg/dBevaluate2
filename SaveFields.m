@@ -17,7 +17,7 @@ function SaveFields
   ###LabbaseID
   data.data.site.targetDB(data.UI.currentEntrySite,8) = get(data.UI.kundeLabbaseID,"string");
   ###AddressCkNecessary
-  data.data.site.targetDB(data.UI.currentEntrySite,26) = get(data.UI.addressCknecessaryCkB,"value");
+  #data.data.site.targetDB(data.UI.currentEntrySite,26) = get(data.UI.addressCknecessaryCkB,"value");
   ### Versorgte Häuser
   siteID = data.data.supplied.(genvarname(strcat("targetDBsuppliedEntry",num2str(data.UI.currentEntrySite))))(2,5){};
   pcode = data.data.supplied.(genvarname(strcat("targetDBsuppliedEntry",num2str(data.UI.currentEntrySite))))(2,8){};

@@ -158,6 +158,6 @@ function BuildUI(appdata)
                                             "string","Anlagen Adresse unklar");
   
   guidata(figureHandle, appdata); # save data to figure
-  UpdateCurrentEntryDisplay(appdata.UI.currentEntrySite,appdata.UI.currentEntryAction); # set entry display to current entryID
+  UpdateCurrentEntryDisplay(appdata.UI.currentEntrySite); # set entry display to current entryID
   UpdateDisplayedData(); # fill input fields with available data
 endfunction

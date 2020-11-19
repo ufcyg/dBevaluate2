@@ -8,16 +8,16 @@ function SwitchEntry(h,evt,direction)
   switch (direction)
       case 0
         data.UI.currentEntrySite = CircleSwap(++data.UI.currentEntrySite, data.data.site.size); # swap to 2 if maximum entry + 1 is reached, or maximum entry of 1 is reached (1 is header)
-        data.UI.currentEntryAction = CircleSwap(++data.UI.currentEntryAction, data.data.action.size); # swap to 2 if maximum entry + 1 is reached, or maximum entry of 1 is reached (1 is header)
+        #data.UI.currentEntryAction = CircleSwap(++data.UI.currentEntryAction, data.data.action.size); # swap to 2 if maximum entry + 1 is reached, or maximum entry of 1 is reached (1 is header)
       case 1
         data.UI.currentEntrySite = CircleSwap(--data.UI.currentEntrySite, data.data.site.size); # swap to 2 if maximum entry + 1 is reached, or maximum entry of 1 is reached (1 is header)
-        data.UI.currentEntryAction = CircleSwap(--data.UI.currentEntryAction, data.data.action.size); # swap to 2 if maximum entry + 1 is reached, or maximum entry of 1 is reached (1 is header)
+        #data.UI.currentEntryAction = CircleSwap(--data.UI.currentEntryAction, data.data.action.size); # swap to 2 if maximum entry + 1 is reached, or maximum entry of 1 is reached (1 is header)
       case 2
         data.UI.currentEntrySite = CapEntry(get(data.UI.gotoIFSite).string,data.UI.currentEntrySite,data.data.site.size); # check if user input is valid, change set current entry accordingly
       case 3
-        data.UI.currentEntryAction = CapEntry(get(data.UI.gotoIFAction).string,data.UI.currentEntryAction,data.data.action.size); # check if user input is valid, change set current entry accordingly
+        #data.UI.currentEntryAction = CapEntry(get(data.UI.gotoIFAction).string,data.UI.currentEntryAction,data.data.action.size); # check if user input is valid, change set current entry accordingly
    endswitch
-   UpdateCurrentEntryDisplay(data.UI.currentEntrySite, data.UI.currentEntryAction); # update displayed current entry
+   UpdateCurrentEntryDisplay(data.UI.currentEntrySite); # update displayed current entry
    guidata(gcf,data); # save modified data to figure
    UpdateDisplayedData(); # update displayed data in input fields according to currentEntry
 endfunction
