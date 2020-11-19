@@ -7,7 +7,7 @@ function BuildUI(appdata)
   figureHandle = figure(
                       "Position", [xStart, yStart, xEnd, yEnd],
                       "numbertitle", "off", 
-                      "name", "dBevaluate",
+                      "name", "dBevaluate2",
                       "resize","off",
                       "toolbar","none",
                       "menubar","none");
@@ -21,7 +21,7 @@ function BuildUI(appdata)
   appdata.UI.currentCustomerLastOfferID = uicontrol(figureHandle,
                                                     "style","edit",
                                                     "units","normalized",
-                                                    "string","-1",
+                                                    "string","-2",
                                                     "position",[.8 0.96 .15 .03]);
   ###
   ####
@@ -81,6 +81,7 @@ function BuildUI(appdata)
   ### 
   dataTargetBG = uibuttongroup(figureHandle,
                                "Position",[ 0 .05 1 .9]);
+if 0
   ansprechpartnerBG = uibuttongroup(dataTargetBG,
                                     "units","normalized",
                                     "Position",[ 0 .925 .95 .075],
@@ -103,6 +104,19 @@ function BuildUI(appdata)
   appdata.UI.kundenkontaktNAME = uicontrol(kundenkontaktBG, "style","edit","units","normalized", "position", [0 0 .3 1]);
   appdata.UI.kundenkontaktTEL = uicontrol(kundenkontaktBG, "style","edit","units","normalized", "position", [0.33 0 .3 1]);
   appdata.UI.kundenkontaktMAIL = uicontrol(kundenkontaktBG, "style","edit","units","normalized", "position", [0.66 0 .3 1]);
+ 
+else
+  additionalAddressInformationBG = uibuttongroup(dataTargetBG,
+                                    "units","normalized",
+                                    "Position",[ 0 .85 1 .15],
+                                    "title","Adresszusatzinformationen");
+                                    
+  appdata.UI.Objektadresse = uicontrol(additionalAddressInformationBG, "style","edit","units","normalized", "position", [0 0.52 .48 .48]);
+  appdata.UI.Hausnummer = uicontrol(additionalAddressInformationBG, "style","edit","units","normalized", "position", [0.52 0.52 .479 .48]); 
+  appdata.UI.StandortAnlage = uicontrol(additionalAddressInformationBG, "style","edit","units","normalized", "position", [0.52 0 .479 .48]);   
+  appdata.UI.Objektbezeichnung = uicontrol(additionalAddressInformationBG, "style","edit","units","normalized", "position", [0 0 .48 .48]);
+  
+endif
   ###
   ####
   ####
@@ -111,20 +125,21 @@ function BuildUI(appdata)
                                   "units","normalized",
                                   "Position",[ 0 .775 .95 .075],
                                   "title","Kunde Labbase ID");
+
   appdata.UI.kundeLabbaseID = uicontrol(kundeLabbaseIDBG, "style","edit","units","normalized", "position",[0 0 1 1]);
-  editB3 = uicontrol (dataTargetBG,
-                      "style","pushbutton",
-                      "units","normalized",
-                      "string", "Bearbeiten", 
-                      "position",[.95 .785 .05 .05],
-                      "callback", {@ShowKundeLabbaseID});
+  #editB3 = uicontrol (dataTargetBG,
+  #                    "style","pushbutton",
+  #                    "units","normalized",
+  #                    "string", "Bearbeiten", 
+  #                    "position",[.95 .785 .05 .05],
+  #                    "callback", {@ShowKundeLabbaseID});
   ###
   ####
   ####
   ### Versorgte Häuser
   suppliedHousesBG = uibuttongroup(dataTargetBG,
                                     "units","normalized",
-                                    "Position",[ 0 0.15 .95 .625],
+                                    "Position",[ 0 0.15 1 .625],
                                     "title","Versorgte Häuser");
                                     
   #for loops generating 2x10 input fields for suppliedHouses
@@ -138,6 +153,7 @@ function BuildUI(appdata)
     appdata.UI.(genvarname(strcat("suppliedHouseStreet",num2str(i)))) = uicontrol(suppliedHousesBG, "style","edit","units","normalized", "position",[0.5 0.9-((i-11)*.1) .45 .08]);
     appdata.UI.(genvarname(strcat("suppliedHouseNumber",num2str(i)))) = uicontrol(suppliedHousesBG, "style","edit","units","normalized", "position",[0.95 0.9-((i-11)*.1) .05 .08]);
   endfor
+ if 0
   editB4 = uicontrol (dataTargetBG,
                       "style","pushbutton",
                       "units","normalized",
@@ -150,7 +166,7 @@ function BuildUI(appdata)
                       "string", "Bearbeiten", 
                       "position",[.66 .1 .05 .05],
                       "callback", {@ShowSuppliedHouses,1});
-                      
+endif                      
   appdata.UI.addressCknecessaryCkB = uicontrol(dataTargetBG,
                                             "style","checkbox",
                                             "units","normalized",

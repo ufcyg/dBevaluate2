@@ -7,6 +7,7 @@ function UpdateDisplayedData
     set(data.UI.currentCustomerName,"title",strcat(data.data.site.raw(data.UI.currentEntrySite,13){}," (",num2str(data.data.site.targetDB(data.UI.currentEntrySite,4){}),")"));
     set(data.UI.currentCustomerLastOfferID,"string",GetOfferID(data.data.site.targetDB(data.UI.currentEntrySite,4){}));
   endif
+if 0
    ###Kontakt vor Ort
   if !isempty(data.data.site.targetDB(data.UI.currentEntrySite,17){})
     ModifyDisplayedData(data.UI.ansprechpartnerNAME,data.data.site.targetDB(data.UI.currentEntrySite,17){});  
@@ -64,7 +65,12 @@ function UpdateDisplayedData
       ModifyDisplayedData(data.UI.kundenkontaktMAIL,"");
     endif
   endif
-  
+else
+  ModifyDisplayedData(data.UI.Objektadresse,data.data.site.raw(data.UI.currentEntrySite,19){});
+  ModifyDisplayedData(data.UI.Hausnummer,data.data.site.raw(data.UI.currentEntrySite,20){});
+  ModifyDisplayedData(data.UI.StandortAnlage,data.data.site.raw(data.UI.currentEntrySite,26){});
+  ModifyDisplayedData(data.UI.Objektbezeichnung,data.data.site.raw(data.UI.currentEntrySite,18){});
+endif
   ###Adresseintrag
   #if !isempty(data.data.site.targetDB(data.UI.currentEntrySite,12){})
   #  ModifyDisplayedData(data.UI.streetIF,data.data.site.targetDB(data.UI.currentEntrySite,12){});    
